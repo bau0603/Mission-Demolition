@@ -58,7 +58,12 @@ public class MissionDemolition : MonoBehaviour
         // Instantiate the new castle
         castle = Instantiate<GameObject>(castles[level]);
         castle.transform.position = castlePos;
-        shotsTaken = 0;
+        
+        // attempt to fix the falling over upon spawning
+        foreach (var block in castle.GetComponentsInChildren<CastleBlock>())
+        {
+            block.Sleep();
+        }
 
         // Reset the camera
         SwitchView("wShow Both");
@@ -66,6 +71,7 @@ public class MissionDemolition : MonoBehaviour
 
         // Reset the goal
         Goal.goalMet = false;
+        shotsTaken = 0;
         UpdateGUI();
         mode = GameMode.playing;
     }
