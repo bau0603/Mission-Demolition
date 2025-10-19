@@ -76,3 +76,6 @@ crashlytics-build.properties
 !/[Pp]ackages/manifest.json
 !/[Aa]ssets/**/*.meta
 !/[Pp]rojectSettings/*
+
+.idea/
+.vscode/
