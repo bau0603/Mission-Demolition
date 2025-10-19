@@ -13,6 +13,9 @@ public class Slingshot : MonoBehaviour
     public float velocityMult = 10f;
     public AudioClip stretchAudioClip;
     public AudioClip shootAudioClip;
+    public LineRenderer slingshotLine;
+    public Transform slingshotLeft;
+    public Transform slingshotRight;
 
     // Fields set dynamically
     [Header("Set Dynamically")]
@@ -44,6 +47,11 @@ public class Slingshot : MonoBehaviour
         launchPos = launchPointTrans.position;
 
         audioSource = GetComponent<AudioSource>();
+
+        slingshotLine.positionCount = 3;
+        slingshotLine.SetPosition(0, slingshotLeft.position);
+        slingshotLine.SetPosition(1, slingshotLeft.position);
+        slingshotLine.SetPosition(2, slingshotRight.position);
     }
 
     void OnMouseEnter()
@@ -106,7 +114,12 @@ public class Slingshot : MonoBehaviour
             projectile = null;
             MissionDemolition.ShotFired();
             ProjectileLine.S.poi = projectile;
+            slingshotLine.SetPosition(1, slingshotLeft.position);
             audioSource.PlayOneShot(shootAudioClip);
+        }
+        else
+        {
+            slingshotLine.SetPosition(1, projPos);
         }
     }
 }
