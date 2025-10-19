@@ -33,8 +33,9 @@ public class FollowCam : MonoBehaviour
             // If poi is a Projectile, check to see if it's at rest
             if (POI.tag == "Projectile")
             {
-                // if it is sleeping (that is, not moving)
-                if (POI.GetComponent<Rigidbody>().IsSleeping())
+                // if it is sleeping (that is, not moving) or velocityis very low
+                var rb = POI.GetComponent<Rigidbody>();
+                if (rb.IsSleeping() || rb.velocity.magnitude < 0.03f)
                 {
                     // return to default view
                     POI = null;
