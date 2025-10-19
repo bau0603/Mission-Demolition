@@ -35,7 +35,7 @@ public class FollowCam : MonoBehaviour
             {
                 // if it is sleeping (that is, not moving) or velocityis very low
                 var rb = POI.GetComponent<Rigidbody>();
-                if (rb.IsSleeping() || rb.velocity.magnitude < 0.03f)
+                if (rb.IsSleeping() || rb.velocity.magnitude < 0.01f)
                 {
                     // return to default view
                     POI = null;
