@@ -66,7 +66,7 @@ public class MissionDemolition : MonoBehaviour
         }
 
         // Reset the camera
-        SwitchView("wShow Both");
+        SwitchView("Show Both");
         ProjectileLine.S.Clear();
 
         // Reset the goal
@@ -79,7 +79,7 @@ public class MissionDemolition : MonoBehaviour
     void UpdateGUI()
     {
         // Show the data in the GUITexts
-        uitLevel.text = "Level: " + (level + 1) + "of " + levelMax;
+        uitLevel.text = "Level: " + (level + 1) + " of " + levelMax;
         uitShots.text = "Shots Taken: " + shotsTaken;
     }
 
@@ -100,13 +100,13 @@ public class MissionDemolition : MonoBehaviour
 
     void NextLevel()
     {
-        level++;
-        if (level == levelMax)
+        if (level == levelMax-1)
         {
             GameOver();
         }
         else
         {
+            level++;
             StartLevel();
         }
     }
