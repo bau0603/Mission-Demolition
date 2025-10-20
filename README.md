@@ -1,5 +1,6 @@
 # Mission-Demolition
 # CS382 Project 2: Mission Demolition
+By Brandon Au and Jack Caesar
 
 🎯 Game Overview
 Objective: Destroy castle structures by launching projectiles from a slingshot
